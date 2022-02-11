@@ -9,7 +9,7 @@ nixpkgs.mkShell {
         unstable.nodejs-16_x
         niv
         pre-commit
-        vscodium
+        unstable.vscodium
     ];
     shellHook = ''
       ${nixpkgs.pre-commit}/bin/pre-commit install
