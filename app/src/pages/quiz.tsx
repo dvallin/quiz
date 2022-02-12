@@ -24,11 +24,11 @@ const QuizPage: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <Route exact path="/quiz">
-          <QuizSelector />
-        </Route>
         <Route exact path="/quiz/play">
           <Quiz />
+        </Route>
+        <Route exact path="/quiz">
+          <QuizSelector />
         </Route>
       </IonContent>
     </IonPage>

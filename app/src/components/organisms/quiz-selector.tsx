@@ -16,7 +16,7 @@ import DifficultySelector from "../atoms/difficulty-selector";
 function useQuizSelect() {
   const [filter, setFilter] = useState<QuestionsFilter>({
     minDifficulty: 1,
-    maxDifficulty: 5,
+    maxDifficulty: 4,
   });
   const { data: bundles = [] } = useBundles();
   const { changePath } = useRoute();

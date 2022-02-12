@@ -62,7 +62,6 @@ export function useRoute(): Route {
     replaceQuery: (params) =>
       history.replace({ pathname, search: makeSearch(params) }),
     changePath: (path, params) => {
-      console.log(path, makeSearch(params));
       history.push({ pathname: path, search: makeSearch(params) });
     },
   };

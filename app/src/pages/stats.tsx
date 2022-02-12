@@ -5,8 +5,9 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import Stats from "../components/organisms/stats";
 
-const Stats: React.FC = () => {
+const StatsPage: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -20,9 +21,10 @@ const Stats: React.FC = () => {
             <IonTitle size="large">Stats</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <Stats />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Stats;
+export default StatsPage;

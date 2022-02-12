@@ -14,10 +14,12 @@ import { useMemo, useState } from "react";
 import Answer from "../atoms/answer";
 import AnswerResult from "../atoms/answer-result";
 import NextButton from "../atoms/next-button";
+import { push as pushToLog } from "../../storage/log";
 import BackButton from "../atoms/back-button";
 import Timer from "../atoms/timer";
 import QuestionResult from "../atoms/question-result";
 import { useRoute } from "../../query";
+import { AnswerMessage } from "../../storage/messages";
 
 export interface ContainerProps {
   question: Question;
@@ -34,6 +36,20 @@ const QuestionComponent: React.FC<ContainerProps> = ({ question, onNext }) => {
     [question]
   );
   const { changePath } = useRoute();
+  const reset = () => {
+    setFinalAnswer(undefined);
+    setDone(false);
+  };
+  const finish = (finalAnswer?: number) => {
+    setFinalAnswer(finalAnswer);
+    setDone(true);
+    pushToLog<AnswerMessage>("answer", {
+      timestamp: Date.now(),
+      questionNr: question.nr,
+      bundleId: question.bundleId,
+      answer: finalAnswer,
+    });
+  };
   return (
     <IonCard>
       <IonCardHeader>
@@ -45,7 +61,7 @@ const QuestionComponent: React.FC<ContainerProps> = ({ question, onNext }) => {
 
       {!done && (
         <Timer
-          onTimeout={() => setDone(true)}
+          onTimeout={() => finish()}
           timeoutMs={15 * 1000}
           resolutionMs={200}
         />
@@ -64,10 +80,7 @@ const QuestionComponent: React.FC<ContainerProps> = ({ question, onNext }) => {
           <Answer
             key={`${question.nr}-${i}`}
             answer={answer}
-            onClick={() => {
-              setFinalAnswer(index);
-              setDone(true);
-            }}
+            onClick={() => finish(index)}
           />
         )
       )}
@@ -81,8 +94,7 @@ const QuestionComponent: React.FC<ContainerProps> = ({ question, onNext }) => {
             <IonCol>
               <NextButton
                 onClick={() => {
-                  setFinalAnswer(undefined);
-                  setDone(false);
+                  reset();
                   onNext();
                 }}
               />
