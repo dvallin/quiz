@@ -34,12 +34,16 @@ export async function push<T>(topic: string, message: T): Promise<string> {
 }
 
 export async function* stream<T>(topic: string, start = 0): AsyncGenerator<T> {
-  const meta = await getMeta();
-  const end = meta[topic] || 0;
+  const end = await count(topic);
   for (let i = start; i < end; i++) {
     const v = await _storage.get(`${topic}-${i}`);
     if (v) {
       yield v;
     }
   }
+}
+
+export async function count(topic: string): Promise<number> {
+  const meta = await getMeta();
+  return meta[topic] + 1 || 0;
 }
