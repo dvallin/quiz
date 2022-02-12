@@ -1,7 +1,7 @@
 import { Storage } from "@ionic/storage";
 import useSWR, { mutate } from "swr";
 import { difficulty } from "../model/question";
-import { stream, count } from "./log";
+import { stream, getLastIndex } from "./log";
 import { AnswerMessage, getQuestionId, isCorrectAnswer } from "./messages";
 import { QuestionLookup, useQuestionsLookup } from "./use-questions";
 
@@ -37,7 +37,7 @@ async function aggregate<Aggregate, Message>(
   }
 
   // write new aggregation state
-  const lastIndex = await count(topic);
+  const lastIndex = await getLastIndex(topic);
   await setLogAggregationState(name, { aggregate, lastIndex });
   return aggregate;
 }
