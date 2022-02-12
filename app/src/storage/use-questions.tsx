@@ -20,6 +20,10 @@ export const staticQuestions: Question[] = [
   },
 ];
 
+export function createQuestionId(bundleId: string, nr: string): string {
+  return `${bundleId}-${nr}`;
+}
+
 export interface QuestionsFilter {
   randomized?: boolean;
   bundleId?: string;
@@ -29,6 +33,24 @@ export interface QuestionsFilter {
 
 export function useQuestions() {
   return useImmutableSWR("questions", () => staticQuestions);
+}
+
+export type QuestionLookup = { [key: string]: Question };
+
+export function useQuestionsLookup() {
+  const { data, ...rest } = useQuestions();
+  return useMemo(() => {
+    let lookup: QuestionLookup | undefined = undefined;
+    if (data) {
+      const l: QuestionLookup = {};
+      data.forEach((question) => {
+        const id = createQuestionId(question.bundleId, question.nr);
+        l[id] = question;
+      });
+      lookup = l;
+    }
+    return { data: lookup, ...rest };
+  }, [data, rest]);
 }
 
 export function useFilteredQuestions(filter: QuestionsFilter) {

@@ -1,9 +1,9 @@
 import { Storage } from "@ionic/storage";
 import useSWR, { mutate } from "swr";
-import { difficulty, Question } from "../model/question";
+import { difficulty } from "../model/question";
 import { stream, count } from "./log";
-import { AnswerMessage } from "./messages";
-import { useQuestions } from "./use-questions";
+import { AnswerMessage, getQuestionId, isCorrectAnswer } from "./messages";
+import { QuestionLookup, useQuestionsLookup } from "./use-questions";
 
 const _storage = new Storage({ name: "log-aggregation" });
 _storage.create();
@@ -46,7 +46,7 @@ export type AnswersByDifficulty = {
   [key in difficulty]: { correct: number; total: number };
 };
 async function aggregateAnswersByDifficulty(
-  questions: Question[]
+  questions: QuestionLookup
 ): Promise<AnswersByDifficulty> {
   const defaultValue: AnswersByDifficulty = {
     1: { correct: 0, total: 0 },
@@ -58,15 +58,12 @@ async function aggregateAnswersByDifficulty(
     "answers-by-difficulty",
     "answer",
     defaultValue,
-    (aggregate, answer) => {
-      const difficulty = questions.find(
-        (q) => q.bundleId === answer.bundleId && q.nr === answer.questionNr
-      )?.difficulty;
-      if (difficulty) {
-        aggregate[difficulty].total++;
-        if (answer.answer === 0) {
-          aggregate[difficulty].correct++;
-        }
+    (aggregate, message) => {
+      const question = questions[getQuestionId(message)];
+      const difficulty = question?.difficulty || 1;
+      aggregate[difficulty].total++;
+      if (isCorrectAnswer(message)) {
+        aggregate[difficulty].correct++;
       }
       return aggregate;
     }
@@ -74,19 +71,15 @@ async function aggregateAnswersByDifficulty(
 }
 
 export type Points = number;
-async function aggregatePoints(questions: Question[]): Promise<Points> {
+async function aggregatePoints(questions: QuestionLookup): Promise<Points> {
   return aggregate<Points, AnswerMessage>(
     "points",
     "answer",
     0,
-    (aggregate, answer) => {
-      if (answer.answer === 0) {
-        const difficulty = questions.find(
-          (q) => q.bundleId === answer.bundleId && q.nr === answer.questionNr
-        )?.difficulty;
-        if (difficulty) {
-          return aggregate + difficulty;
-        }
+    (aggregate, message) => {
+      if (isCorrectAnswer(message)) {
+        const question = questions[getQuestionId(message)];
+        return aggregate + (question?.difficulty || 1);
       }
       return aggregate;
     }
@@ -99,16 +92,16 @@ export function mutateLogAggregations(): void {
 }
 
 export function usePointsAggregation() {
-  const { data: questions } = useQuestions();
+  const { data: questions } = useQuestionsLookup();
   return useSWR(questions ? ["log-aggregation", "points"] : null, () =>
-    aggregatePoints(questions || [])
+    aggregatePoints(questions || {})
   );
 }
 
 export function useAnswersByDifficultyAggregation() {
-  const { data: questions } = useQuestions();
+  const { data: questions } = useQuestionsLookup();
   return useSWR(
     questions ? ["log-aggregation", "answers-by-difficulty"] : null,
-    () => aggregateAnswersByDifficulty(questions || [])
+    () => aggregateAnswersByDifficulty(questions || {})
   );
 }
