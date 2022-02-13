@@ -12,7 +12,7 @@ export async function fetchQuestions(bundles: Bundle[]): Promise<Question[]> {
       >(`/assets/data/${bundle.id}.json`);
       return questionsOfBundle.map((q) => ({
         bundleId: bundle.id,
-        nr: index.toString(),
+        nr: (index + 1).toString(),
         ...q,
       }));
     })
