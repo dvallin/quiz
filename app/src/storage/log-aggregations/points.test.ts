@@ -36,8 +36,8 @@ function pushAnswer(questionNr: string, answer?: number): Promise<string> {
 }
 
 it("runs on empty state", async () => {
-  const answersByDifficulty = await aggregatePoints(questionsLookup);
-  expect(answersByDifficulty).toEqual(0);
+  const points = await aggregatePoints(questionsLookup);
+  expect(points).toEqual(0);
 });
 
 it("aggregates answers", async () => {
@@ -45,14 +45,14 @@ it("aggregates answers", async () => {
   await pushAnswer("2", 0);
   await pushAnswer("2", 1);
   await pushAnswer("2");
-  const answersByDifficulty = await aggregatePoints(questionsLookup);
-  expect(answersByDifficulty).toEqual(3);
+  const points = await aggregatePoints(questionsLookup);
+  expect(points).toEqual(3);
 });
 
 it("updates streams", async () => {
   await pushAnswer("1", 0);
   await aggregatePoints(questionsLookup);
   await pushAnswer("1", 0);
-  const answersByDifficulty = await aggregatePoints(questionsLookup);
-  expect(answersByDifficulty).toEqual(2);
+  const points = await aggregatePoints(questionsLookup);
+  expect(points).toEqual(2);
 });

@@ -20,8 +20,8 @@ function pushAnswer(bundleId: string, answer?: number): Promise<string> {
 const empty: AnswersByBundle = {};
 
 it("runs on empty state", async () => {
-  const answersByDifficulty = await aggregateAnswersByBundle();
-  expect(answersByDifficulty).toEqual(empty);
+  const answersByBundle = await aggregateAnswersByBundle();
+  expect(answersByBundle).toEqual(empty);
 });
 
 it("aggregates answers", async () => {
@@ -29,8 +29,8 @@ it("aggregates answers", async () => {
   await pushAnswer("2", 0);
   await pushAnswer("2", 1);
   await pushAnswer("2");
-  const answersByDifficulty = await aggregateAnswersByBundle();
-  expect(answersByDifficulty).toEqual({
+  const answersByBundle = await aggregateAnswersByBundle();
+  expect(answersByBundle).toEqual({
     ...empty,
     "1": { correct: 1, total: 1 },
     "2": { correct: 1, total: 3 },
@@ -41,8 +41,8 @@ it("updates streams", async () => {
   await pushAnswer("1", 0);
   await aggregateAnswersByBundle();
   await pushAnswer("1", 1);
-  const answersByDifficulty = await aggregateAnswersByBundle();
-  expect(answersByDifficulty).toEqual({
+  const answersByBundle = await aggregateAnswersByBundle();
+  expect(answersByBundle).toEqual({
     ...empty,
     "1": { correct: 1, total: 2 },
   });

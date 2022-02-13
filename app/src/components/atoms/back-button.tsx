@@ -1,13 +1,13 @@
 import { IonButton } from "@ionic/react";
 
-export interface NextButtonProps {
+export interface BackButtonProps {
   onClick: () => void;
 }
 
-const NextButton: React.FC<NextButtonProps> = ({ onClick }) => (
+const BackButton: React.FC<BackButtonProps> = ({ onClick }) => (
   <IonButton expand="full" color="secondary" onClick={onClick}>
     Back
   </IonButton>
 );
 
-export default NextButton;
+export default BackButton;

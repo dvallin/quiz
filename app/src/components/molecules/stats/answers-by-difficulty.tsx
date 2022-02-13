@@ -1,7 +1,7 @@
-import { IonItem, IonLabel, IonText } from "@ionic/react";
+import { IonItem, IonText } from "@ionic/react";
 import { difficulties, difficultyNames } from "../../../model/difficulty";
-import { percentageToString } from "../../../percentage";
 import { useAnswersByDifficultyAggregation } from "../../../storage/log-aggregations/answers-by-difficulty";
+import { PercentageStat } from "../../atoms/percentage-stat";
 
 const AnswersByDifficulty: React.FC = () => {
   const { data: answersByDifficulty } = useAnswersByDifficultyAggregation();
@@ -19,10 +19,11 @@ const AnswersByDifficulty: React.FC = () => {
         const { correct, total } = answersByDifficulty[difficulty];
         return (
           <IonItem key={difficulty}>
-            <IonLabel>
-              {difficultyNames[difficulty]}: {correct} / {total} correct answers
-              ({percentageToString(correct, total)})
-            </IonLabel>
+            <PercentageStat
+              name={difficultyNames[difficulty]}
+              correct={correct}
+              total={total}
+            />
           </IonItem>
         );
       })}

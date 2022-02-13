@@ -1,7 +1,7 @@
-import { IonItem, IonLabel, IonText } from "@ionic/react";
-import { percentageToString } from "../../../percentage";
+import { IonItem, IonText } from "@ionic/react";
 import { useAnswersByBundleAggregation } from "../../../storage/log-aggregations/answers-by-bundle";
 import { useBundles } from "../../../storage/use-bundles";
+import { PercentageStat } from "../../atoms/percentage-stat";
 
 const AnswersByBundle: React.FC = () => {
   const { data: answersByBundle } = useAnswersByBundleAggregation();
@@ -23,10 +23,11 @@ const AnswersByBundle: React.FC = () => {
         };
         return (
           <IonItem key={bundle.id}>
-            <IonLabel>
-              {bundle.name}: {correct} / {total} correct answers (
-              {percentageToString(correct, total)})
-            </IonLabel>
+            <PercentageStat
+              name={bundle.name}
+              correct={correct}
+              total={total}
+            />
           </IonItem>
         );
       })}

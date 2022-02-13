@@ -39,14 +39,13 @@ export async function aggregate<Aggregate, Message>(
   return aggregate;
 }
 
-const aggregations: string[] = [];
-export function registerAggregation(name: string): void {
-  aggregations.push(name);
-}
+const _aggregations: string[] = [];
 
+export function registerAggregation(name: string): void {
+  _aggregations.push(name);
+}
 export function mutateLogAggregations(): void {
-  aggregations.forEach((aggregation) => {
-    mutate(["log-aggregation", aggregation]);
+  _aggregations.forEach((aggregation) => {
     mutate(["log-aggregation", aggregation]);
   });
 }
