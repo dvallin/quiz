@@ -1,0 +1,112 @@
+[
+    {
+        "nr": "1",
+        "question": "At what time does Harry do his homework in the third year when he is at the Dursley's?",
+        "answers": [
+            "Night",
+            "Morning",
+            "Afternoon",
+            "Evening"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "2",
+        "question": "Who wrote A History of Magic?",
+        "answers": [
+            "Bathilda Bagshot",
+            "Timothy Teellingsaw",
+            "Ollister Onchister",
+            "Sabrina Seafood"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "3",
+        "question": "In which time of history were muggles particularly afraid of wizards and witches?",
+        "answers": [
+            "Medieval Times",
+            "Ancient History",
+            "Ancient Egypt",
+            "Mayan History"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "4",
+        "question": "Which charm is used to protect yourself from flames when being burned?",
+        "answers": [
+            "Flame Freezing Charm",
+            "Heat Absorbing Charm",
+            "Skin Cooling Charm",
+            "Fire Adaption Charm"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "5",
+        "question": "How many times was Wendelin the Weird burned?",
+        "answers": [
+            "47",
+            "32",
+            "59",
+            "73"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "6",
+        "question": "What did Snape give Harry as homework in the summer holidays in his third year?",
+        "answers": [
+            "Shrinking Potions",
+            "Draught of Peace",
+            "Amortentia",
+            "Confusing Concoction"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "7",
+        "question": "What were the Dursley's doing while Harry picked the cupboard lock and took some books, a quill, paper and ink in his third year?",
+        "answers": [
+            "They were in the front garden admiring the new car",
+            "They were out for a Sunday brunch",
+            "They were in the front garden having a barbecue",
+            "They were in the living room watching the evening news"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "8",
+        "question": "Who called Harry first in the summer holidays in the third year?",
+        "answers": [
+            "Ron",
+            "Hermione",
+            "Neville",
+            "Hagrid"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "9",
+        "question": "How many weeks passed when Ron called Harry in the summer holidays in third year?",
+        "answers": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "10",
+        "question": "What does Ron do when he calls Privet Drive by phone?",
+        "answers": [
+            "He shouts into the phone",
+            "He whispers into the phone",
+            "He talks normally into the phone",
+            "He doesn't say anything"
+        ],
+        "difficulty": 1
+    }
+]

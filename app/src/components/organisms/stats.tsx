@@ -1,20 +1,30 @@
-import { IonItem, IonLabel, IonText } from "@ionic/react";
-import { difficulties } from "../../model/question";
+import { IonButton, IonItem, IonLabel, IonText } from "@ionic/react";
+import { difficulties } from "../../model/difficulty";
+import { clear as clearLog } from "../../storage/log";
+import {
+  clear as clearLogAggregation,
+  mutateLogAggregations,
+} from "../../storage/log-aggregation";
 import {
   useAnswersByDifficultyAggregation,
   usePointsAggregation,
 } from "../../storage/log-aggregation";
 
 const percentageToString = (
-  partial: number,
+  fraction: number,
   total: number,
   fractionDigits = 1
 ): string => {
-  const percentage = 100 * ((total - partial) / total);
+  const percentage = 100 * (1 - (total - fraction) / total);
   return Number.isNaN(percentage)
     ? "0%"
     : `${percentage.toFixed(fractionDigits)}%`;
 };
+
+async function clearAllData(): Promise<void> {
+  await Promise.all([clearLog(), clearLogAggregation()]);
+  mutateLogAggregations();
+}
 
 const Stats: React.FC = () => {
   const { data: points } = usePointsAggregation();
@@ -60,6 +70,9 @@ const Stats: React.FC = () => {
     <>
       {pointsOverall}
       {byDifficulty}
+      <IonButton color="danger" onClick={() => clearAllData()} expand="full">
+        Clear all data!!
+      </IonButton>
     </>
   );
 };

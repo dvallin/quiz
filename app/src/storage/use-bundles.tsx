@@ -1,11 +1,7 @@
-import useSWR from "swr";
+import useSWR, { SWRResponse } from "swr";
 import { Bundle } from "../model/bundle";
+import { fetchJson } from "./fetch-json";
 
-const staticBundles: Bundle[] = [
-  { id: "HP1", name: "Harry Potter - 1 Philosopher’s Stone" },
-  { id: "HP2", name: "Harry Potter - 2 Chamber of Secrets" },
-];
-
-export function useBundles() {
-  return useSWR("bundles", () => staticBundles);
+export function useBundles(): SWRResponse<Bundle[], Error> {
+  return useSWR("bundles", () => fetchJson("/assets/data/bundles.json"));
 }

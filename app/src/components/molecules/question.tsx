@@ -19,7 +19,7 @@ import BackButton from "../atoms/back-button";
 import Timer from "../atoms/timer";
 import QuestionResult from "../atoms/question-result";
 import { useRoute } from "../../query";
-import { AnswerMessage } from "../../storage/messages";
+import { AnswerMessage } from "../../model/answer-message";
 
 export interface ContainerProps {
   question: Question;

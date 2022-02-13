@@ -1,0 +1,123 @@
+[
+    {
+        "nr": "1",
+        "question": "What does Mr. Weasley ask of Harry just before the Hogwarts train leaves?",
+        "answers": [
+            "Harry should not look for Black",
+            "Harry should be beware of the Dementors",
+            "Harry should be careful in Hogwarts",
+            "Harry should tell Dumbledore anything suspicious"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "2",
+        "question": "What is written on Lupin's case?",
+        "answers": [
+            "R. J. Lupin",
+            "R. Lupin",
+            "Remus J. Lupin",
+            "Remus John Lupin"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "3",
+        "question": "What does Harry miss most about Hogwarts in his second year?",
+        "answers": [
+            "Quidditch",
+            "Hagrid",
+            "Using magic",
+            "Dumbledore"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "4",
+        "question": "Why was the Sneakoscope activated when Ron send it to Harry as a birthday gift?",
+        "answers": [
+            "Because he was not supposed to use Errol",
+            "Because the Dursley’s can’t be trusted",
+            "Because Errol can’t be trusted",
+            "Because Ron is not to be trusted"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "5",
+        "question": "Where is the village of Hogsmeade located?",
+        "answers": [
+            "Scotland",
+            "England",
+            "Wales",
+            "Northern Ireland"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "6",
+        "question": "The Inn in Hogsmeade was the headquarters of the goblin rebellion of...",
+        "answers": [
+            "1612",
+            "1723",
+            "1543",
+            "1466"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "7",
+        "question": "What is the shop called Ron is swarming about?",
+        "answers": [
+            "Honeydukes",
+            "Sugarduke",
+            "Tastybuds",
+            "Cheesycream"
+        ],
+        "difficulty": 2
+    },
+    {
+        "nr": "8",
+        "question": "What do sherbet balls do?",
+        "answers": [
+            "You levitate inches from the ground while you suck them",
+            "Your head changes colour while you suck them",
+            "You breath fire while you suck them",
+            "You decrease in size while you suck them"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "9",
+        "question": "What do pepper imps do?",
+        "answers": [
+            "They make you smoke at the mouth",
+            "They make you immune to boiling water",
+            "They make you shout out loud",
+            "They make you dance fiercely"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "10",
+        "question": "What are sugar quills good for?",
+        "answers": [
+            "Sucking in class unnoticed",
+            "They can write essays themselves",
+            "They help you to express yourself",
+            "They give you boost of great inspiration"
+        ],
+        "difficulty": 4
+    },
+    {
+        "nr": "11",
+        "question": "At what time does the plump witch with the food cart arrive in the third year?",
+        "answers": [
+            "1 o'clock",
+            "2 o'clock",
+            "12 o'clock",
+            "12:30 o'clock"
+        ],
+        "difficulty": 5
+    }
+]

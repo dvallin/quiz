@@ -1,9 +1,13 @@
 import { Storage } from "@ionic/storage";
 import useSWR, { mutate } from "swr";
-import { difficulty } from "../model/question";
+import { difficulty } from "../model/difficulty";
 import { stream, getLastIndex } from "./log";
-import { AnswerMessage, getQuestionId, isCorrectAnswer } from "./messages";
-import { QuestionLookup, useQuestionsLookup } from "./use-questions";
+import {
+  AnswerMessage,
+  getQuestionId,
+  isCorrectAnswer,
+} from "../model/answer-message";
+import { QuestionsLookup, useQuestionsLookup } from "./use-questions-lookup";
 
 const _storage = new Storage({ name: "log-aggregation" });
 _storage.create();
@@ -46,7 +50,7 @@ export type AnswersByDifficulty = {
   [key in difficulty]: { correct: number; total: number };
 };
 async function aggregateAnswersByDifficulty(
-  questions: QuestionLookup
+  questions: QuestionsLookup
 ): Promise<AnswersByDifficulty> {
   const defaultValue: AnswersByDifficulty = {
     1: { correct: 0, total: 0 },
@@ -71,7 +75,7 @@ async function aggregateAnswersByDifficulty(
 }
 
 export type Points = number;
-async function aggregatePoints(questions: QuestionLookup): Promise<Points> {
+async function aggregatePoints(questions: QuestionsLookup): Promise<Points> {
   return aggregate<Points, AnswerMessage>(
     "points",
     "answer",
@@ -104,4 +108,8 @@ export function useAnswersByDifficultyAggregation() {
     questions ? ["log-aggregation", "answers-by-difficulty"] : null,
     () => aggregateAnswersByDifficulty(questions || {})
   );
+}
+
+export function clear(): Promise<void> {
+  return _storage.clear();
 }

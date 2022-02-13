@@ -3,7 +3,7 @@ import {
   difficulties,
   difficulty,
   difficultyNames,
-} from "../../model/question";
+} from "../../model/difficulty";
 
 export type DifficultySelectorProps = React.ComponentProps<typeof IonSelect> & {
   onDifficultySelected: (d: difficulty) => void;

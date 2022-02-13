@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { useRoute } from "../../query";
 import { useBundles } from "../../storage/use-bundles";
-import { QuestionsFilter } from "../../storage/use-questions";
+import { QuestionsFilter } from "../../storage/use-filtered-questions";
 import DifficultySelector from "../atoms/difficulty-selector";
 
 function useQuizSelect() {

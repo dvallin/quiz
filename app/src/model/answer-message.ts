@@ -1,4 +1,4 @@
-import { createQuestionId } from "./use-questions";
+import { createQuestionId } from "./question";
 
 export interface AnswerMessage {
   timestamp: number;

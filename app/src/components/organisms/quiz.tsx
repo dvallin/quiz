@@ -1,12 +1,12 @@
 import { IonLabel } from "@ionic/react";
 import { useState } from "react";
 import Question from "../molecules/question";
-import { difficulty } from "../../model/question";
+import { difficulty } from "../../model/difficulty";
+import { toBoolean, toInteger, toString, useQuery } from "../../query";
 import {
   QuestionsFilter,
   useFilteredQuestions,
-} from "../../storage/use-questions";
-import { toBoolean, toInteger, toString, useQuery } from "../../query";
+} from "../../storage/use-filtered-questions";
 
 function useQuizQuery(): { filter: QuestionsFilter } {
   const { randomized, bundleId, minDifficulty, maxDifficulty } = useQuery();

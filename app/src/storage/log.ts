@@ -51,3 +51,7 @@ export async function* stream<T>(topic: string, start = 0): AsyncGenerator<T> {
     }
   }
 }
+
+export function clear(): Promise<void> {
+  return _storage.clear();
+}

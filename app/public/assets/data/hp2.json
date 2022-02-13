@@ -1,0 +1,134 @@
+[
+    {
+        "nr": "1",
+        "question": "How many rolls of parchment more does Hermione use on her homework for Binn's in the third year summer holidays?",
+        "answers": [
+            "2",
+            "3",
+            "1",
+            "4"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "2",
+        "question": "What is not part of the Broomstick servicing kit Harry gets for his birthday?",
+        "answers": [
+            "Fin's High-Finish Handle Polish",
+            "A pair of gleaming silver GailgTwig Clippers",
+            "Phil‘s Certified Polishing Wax",
+            "A Handbook of Do it Yourself Broomcare"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "3",
+        "question": "What does Harry miss most about Hogwarts in his second year?",
+        "answers": [
+            "Quidditch",
+            "Hagrid",
+            "Using magic",
+            "Dumbledore"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "4",
+        "question": "Who does not send Harry a present for his thirteenth birthday?",
+        "answers": [
+            "Dumbledore",
+            "Hagrid",
+            "Hermione",
+            "Ron"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "5",
+        "question": "What does Hagrid give Harry for his thirteenth birthday?",
+        "answers": [
+            "The Monster Book of Monsters",
+            "The Monster Book",
+            "The Book of Monsters",
+            "The Book of Monsters beyond Monsters"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "6",
+        "question": "Who does not send Harry a present for his thirteenth birthday?",
+        "answers": [
+            "Dumbledore",
+            "Hagrid",
+            "Hermione",
+            "Ron"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "7",
+        "question": "What are third year students allowed to do?",
+        "answers": [
+            "Go to Hogsmeade",
+            "Go away for the weekend",
+            "Also leave for Easter holidays",
+            "Go to Hodsmeade once"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "8",
+        "question": "How many birthday cards does Harry receive for his thirteenth birthday?",
+        "answers": [
+            "Go to Hogsmeade",
+            "Go away for the weekend",
+            "Also leave for Easter holidays",
+            "Go to Hodsmeade once"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "9",
+        "question": "What are third year students allowed to do?",
+        "answers": [
+            "3",
+            "4",
+            "5",
+            "2"
+        ],
+        "difficulty": 1
+    },
+    {
+        "nr": "10",
+        "question": "What does uncle Vernon suggest should be done with people like Black?",
+        "answers": [
+            "Hang them",
+            "Shoot them",
+            "Beat them",
+            "Electrocute them"
+        ],
+        "difficulty": 5
+    },
+    {
+        "nr": "11",
+        "question": "Who comes to visit the Dursley's in privet drive in the third book?",
+        "answers": [
+            "Aunt Marge",
+            "Aunt May",
+            "Aunt Marry",
+            "Aunt Mela"
+        ],
+        "difficulty": 3
+    },
+    {
+        "nr": "12",
+        "question": "Which animal does Aunt Marge breed?",
+        "answers": [
+            "Pitbulls",
+            "German Shepards",
+            "Huskies",
+            "Beagles"
+        ],
+        "difficulty": 2
+    }
+]
