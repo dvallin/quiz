@@ -22,7 +22,7 @@ async function getMeta(): Promise<Meta> {
   }
   const m = await _storage.get("log-meta");
   _meta = m;
-  return m;
+  return m || {};
 }
 
 export async function getLastIndex(topic: string): Promise<number> {
