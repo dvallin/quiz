@@ -10,14 +10,8 @@ _storage.create();
 
 let _meta: Meta | undefined = undefined;
 
-async function incrementLastIndex(topic: string): Promise<number> {
-  const meta = await getMeta();
-  meta[topic] = (meta[topic] || 0) + 1;
-  _storage.set("log-meta", meta);
-  return meta[topic];
-}
 async function getMeta(): Promise<Meta> {
-  if (_meta !== undefined) {
+  if (_meta) {
     return _meta;
   }
   const m = await _storage.get("log-meta");
@@ -25,10 +19,17 @@ async function getMeta(): Promise<Meta> {
   return m || {};
 }
 
+async function incrementLastIndex(topic: string): Promise<number> {
+  const meta = await getMeta();
+  meta[topic] = (meta[topic] || 0) + 1;
+  _storage.set("log-meta", meta);
+  return meta[topic];
+}
+
 export async function getLastIndex(topic: string): Promise<number> {
   const meta = await getMeta();
   if (meta[topic] !== undefined) {
-    return meta[topic] + 1;
+    return meta[topic];
   }
   return 0;
 }
@@ -43,7 +44,7 @@ export async function push<T>(topic: string, message: T): Promise<string> {
 
 export async function* stream<T>(topic: string, start = 0): AsyncGenerator<T> {
   const end = await getLastIndex(topic);
-  for (let i = start; i < end; i++) {
+  for (let i = start; i <= end; i++) {
     const v = await _storage.get(`${topic}-${i}`);
     // the topic might contain holes! Do not yield them!
     if (v) {
@@ -53,5 +54,6 @@ export async function* stream<T>(topic: string, start = 0): AsyncGenerator<T> {
 }
 
 export function clear(): Promise<void> {
+  _meta = undefined;
   return _storage.clear();
 }

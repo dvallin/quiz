@@ -42,14 +42,14 @@ async function aggregate<Aggregate, Message>(
 
   // write new aggregation state
   const lastIndex = await getLastIndex(topic);
-  await setLogAggregationState(name, { aggregate, lastIndex });
+  await setLogAggregationState(name, { aggregate, lastIndex: lastIndex + 1 });
   return aggregate;
 }
 
 export type AnswersByDifficulty = {
   [key in difficulty]: { correct: number; total: number };
 };
-async function aggregateAnswersByDifficulty(
+export async function aggregateAnswersByDifficulty(
   questions: QuestionsLookup
 ): Promise<AnswersByDifficulty> {
   const defaultValue: AnswersByDifficulty = {
@@ -75,7 +75,9 @@ async function aggregateAnswersByDifficulty(
 }
 
 export type Points = number;
-async function aggregatePoints(questions: QuestionsLookup): Promise<Points> {
+export async function aggregatePoints(
+  questions: QuestionsLookup
+): Promise<Points> {
   return aggregate<Points, AnswerMessage>(
     "points",
     "answer",
