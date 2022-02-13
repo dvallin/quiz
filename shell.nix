@@ -8,12 +8,9 @@ nixpkgs.mkShell {
     buildInputs = with nixpkgs; [
         unstable.nodejs-16_x
         niv
-        pre-commit
         unstable.vscodium
     ];
     shellHook = ''
-      ${nixpkgs.pre-commit}/bin/pre-commit install
-      
       export PATH="$PWD/node_modules/.bin/:$PATH"
     '';
 }

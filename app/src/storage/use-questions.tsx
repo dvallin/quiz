@@ -6,11 +6,15 @@ import { useBundles } from "./use-bundles";
 
 export async function fetchQuestions(bundles: Bundle[]): Promise<Question[]> {
   const questions = await Promise.all(
-    bundles.map(async (bundle) => {
-      const questionsOfBundle = await fetchJson<Omit<Question, "bundleId">[]>(
-        `/assets/data/${bundle.id}.json`
-      );
-      return questionsOfBundle.map((q) => ({ bundleId: bundle.id, ...q }));
+    bundles.map(async (bundle, index) => {
+      const questionsOfBundle = await fetchJson<
+        Omit<Question, "bundleId" | "nr">[]
+      >(`/assets/data/${bundle.id}.json`);
+      return questionsOfBundle.map((q) => ({
+        bundleId: bundle.id,
+        nr: index.toString(),
+        ...q,
+      }));
     })
   );
   return questions.flatMap((i) => i);

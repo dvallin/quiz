@@ -1,6 +1,5 @@
 [
     {
-        "nr": "1",
         "question": "What does Mr. Weasley ask of Harry just before the Hogwarts train leaves?",
         "answers": [
             "Harry should not look for Black",
@@ -11,7 +10,6 @@
         "difficulty": 5
     },
     {
-        "nr": "2",
         "question": "What is written on Lupin's case?",
         "answers": [
             "R. J. Lupin",
@@ -22,7 +20,6 @@
         "difficulty": 5
     },
     {
-        "nr": "3",
         "question": "What does Harry miss most about Hogwarts in his second year?",
         "answers": [
             "Quidditch",
@@ -33,7 +30,6 @@
         "difficulty": 3
     },
     {
-        "nr": "4",
         "question": "Why was the Sneakoscope activated when Ron send it to Harry as a birthday gift?",
         "answers": [
             "Because he was not supposed to use Errol",
@@ -44,7 +40,6 @@
         "difficulty": 5
     },
     {
-        "nr": "5",
         "question": "Where is the village of Hogsmeade located?",
         "answers": [
             "Scotland",
@@ -55,7 +50,6 @@
         "difficulty": 3
     },
     {
-        "nr": "6",
         "question": "The Inn in Hogsmeade was the headquarters of the goblin rebellion of...",
         "answers": [
             "1612",
@@ -66,7 +60,6 @@
         "difficulty": 5
     },
     {
-        "nr": "7",
         "question": "What is the shop called Ron is swarming about?",
         "answers": [
             "Honeydukes",
@@ -77,7 +70,6 @@
         "difficulty": 2
     },
     {
-        "nr": "8",
         "question": "What do sherbet balls do?",
         "answers": [
             "You levitate inches from the ground while you suck them",
@@ -88,7 +80,6 @@
         "difficulty": 4
     },
     {
-        "nr": "9",
         "question": "What do pepper imps do?",
         "answers": [
             "They make you smoke at the mouth",
@@ -99,7 +90,6 @@
         "difficulty": 3
     },
     {
-        "nr": "10",
         "question": "What are sugar quills good for?",
         "answers": [
             "Sucking in class unnoticed",
@@ -110,7 +100,6 @@
         "difficulty": 4
     },
     {
-        "nr": "11",
         "question": "At what time does the plump witch with the food cart arrive in the third year?",
         "answers": [
             "1 o'clock",
