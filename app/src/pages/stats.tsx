@@ -5,7 +5,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import Stats from "../components/organisms/stats";
+import Stats from "../components/organisms/stats/stats";
 
 const StatsPage: React.FC = () => {
   return (

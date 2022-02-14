@@ -1,12 +1,12 @@
 import { IonItem, IonLabel } from "@ionic/react";
 
-export interface ContainerProps {
+export interface AnswerResultProps {
   answer: string;
   index: number;
   finalAnswer: number | undefined;
 }
 
-const AnswerResult: React.FC<ContainerProps> = ({
+const AnswerResult: React.FC<AnswerResultProps> = ({
   answer,
   index,
   finalAnswer,

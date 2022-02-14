@@ -8,10 +8,10 @@ import {
   IonListHeader,
 } from "@ionic/react";
 import { useState } from "react";
-import { useRoute } from "../../query";
-import { useBundles } from "../../storage/use-bundles";
-import { QuestionsFilter } from "../../storage/use-filtered-questions";
-import DifficultySelector from "../atoms/difficulty-selector";
+import { useRoute } from "../../../query";
+import { useBundles } from "../../../storage/use-bundles";
+import { QuestionsFilter } from "../../../storage/use-filtered-questions";
+import DifficultySelector from "../../atoms/quiz/difficulty-selector";
 
 function useQuizSelect() {
   const [filter, setFilter] = useState<QuestionsFilter>({

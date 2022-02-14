@@ -1,11 +1,11 @@
 import { Story } from "@storybook/react";
-import { createMemoryHistory } from "history";
+import { createBrowserHistory } from "history";
 import { Route, Router } from "react-router";
 
-export function routerDecorator(path?: string) {
+export function withRouter(path?: string) {
   return (Story: Story) => {
     return (
-      <Router history={createMemoryHistory()}>
+      <Router history={createBrowserHistory()}>
         <Route path={path}>
           <Story />
         </Route>

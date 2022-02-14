@@ -1,7 +1,7 @@
 import { IonItem, IonText } from "@ionic/react";
 import { useAnswersByBundleAggregation } from "../../../storage/log-aggregations/answers-by-bundle";
 import { useBundles } from "../../../storage/use-bundles";
-import { PercentageStat } from "../../atoms/percentage-stat";
+import { PercentageStat } from "../../atoms/stats/percentage-stat";
 
 const AnswersByBundle: React.FC = () => {
   const { data: answersByBundle } = useAnswersByBundleAggregation();

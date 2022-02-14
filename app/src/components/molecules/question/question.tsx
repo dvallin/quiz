@@ -7,26 +7,26 @@ import {
   IonGrid,
   IonRow,
 } from "@ionic/react";
-import { Question } from "../../model/question";
-import { useBundles } from "../../storage/use-bundles";
-import { shuffle } from "../../shuffle";
+import { Question } from "../../../model/question";
+import { useBundles } from "../../../storage/use-bundles";
+import { shuffle } from "../../../shuffle";
 import { useMemo, useState } from "react";
-import Answer from "../atoms/answer";
-import AnswerResult from "../atoms/answer-result";
-import NextButton from "../atoms/next-button";
-import { push as pushToLog } from "../../storage/log";
-import BackButton from "../atoms/back-button";
-import Timer from "../atoms/timer";
-import QuestionResult from "../atoms/question-result";
-import { useRoute } from "../../query";
-import { AnswerMessage } from "../../model/answer-message";
+import Answer from "../../atoms/answer/answer";
+import AnswerResult from "../../atoms/answer/answer-result";
+import NextButton from "../../atoms/question/next-button";
+import { push as pushToLog } from "../../../storage/log";
+import BackButton from "../../atoms/question/back-button";
+import Timer from "../../atoms/question/timer";
+import QuestionResult from "../../atoms/question/question-result";
+import { useRoute } from "../../../query";
+import { AnswerMessage } from "../../../model/answer-message";
 
-export interface ContainerProps {
+export interface QuestionProps {
   question: Question;
   onNext: () => void;
 }
 
-const QuestionComponent: React.FC<ContainerProps> = ({ question, onNext }) => {
+const QuestionComponent: React.FC<QuestionProps> = ({ question, onNext }) => {
   const [finalAnswer, setFinalAnswer] = useState<number | undefined>();
   const [done, setDone] = useState<boolean>(false);
   const { data: bundles = [] } = useBundles();

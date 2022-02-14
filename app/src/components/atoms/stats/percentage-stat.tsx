@@ -1,5 +1,5 @@
 import { IonLabel } from "@ionic/react";
-import { percentageToString } from "../../percentage";
+import { percentageToString } from "../../../percentage";
 
 export interface PercentageStatProps {
   correct: number;

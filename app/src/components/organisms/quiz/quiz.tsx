@@ -1,12 +1,12 @@
 import { IonLabel } from "@ionic/react";
 import { useState } from "react";
-import Question from "../molecules/question";
-import { difficulty } from "../../model/difficulty";
-import { toBoolean, toInteger, toString, useQuery } from "../../query";
+import Question from "../../molecules/question/question";
+import { difficulty } from "../../../model/difficulty";
+import { toBoolean, toInteger, toString, useQuery } from "../../../query";
 import {
   QuestionsFilter,
   useFilteredQuestions,
-} from "../../storage/use-filtered-questions";
+} from "../../../storage/use-filtered-questions";
 
 function useQuizQuery(): { filter: QuestionsFilter } {
   const { randomized, bundleId, minDifficulty, maxDifficulty } = useQuery();
@@ -21,7 +21,9 @@ function useQuizQuery(): { filter: QuestionsFilter } {
 }
 
 const Quiz: React.FC = () => {
+  console.log("render");
   const { filter } = useQuizQuery();
+  console.log(filter);
   const { data: questions = [] } = useFilteredQuestions(filter);
 
   const [index, setIndex] = useState(0);

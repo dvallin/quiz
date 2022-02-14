@@ -6,8 +6,8 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import Quiz from "../components/organisms/quiz";
-import QuizSelector from "../components/organisms/quiz-selector";
+import Quiz from "../components/organisms/quiz/quiz";
+import QuizSelector from "../components/organisms/quiz/quiz-selector";
 
 const QuizPage: React.FC = () => {
   return (
